@@ -56,7 +56,7 @@ First, the data augmentation is done using techniques such as rotations, flips, 
 <br /><br />
 
 
-![](http://dlclass2019.github.io/images/sample_ex.png)
+![](http://dlclass2019.github.io/images/smote_ex.png)
 
 **Fig 5.** Examples of different original and artificial images of MNIST data. The first two row are the original examples taken from MNIST data used for generating artificial sample with SMOTE shown in the third row. The fourth row has images that is generated with SMOTe and transformed using RBM model.
 <br /><br />
