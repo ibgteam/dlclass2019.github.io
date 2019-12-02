@@ -61,8 +61,20 @@ First, the data augmentation is done using techniques such as rotations, flips, 
 **Fig 5.** Examples of different original and artificial images of MNIST data. The first two row are the original examples taken from MNIST data used for generating artificial sample with SMOTE shown in the third row. The fourth row has images that is generated with SMOTe and transformed using RBM model.
 <br /><br />
 
+### Algorithm Level Method
 
-You’ll find this post in your `_posts` directory.
+Unlike data-level methods, algorithm level methods do not change the distribution of training data. However, they modify the algorithms to account for class penalty or shift the decision threshold to reduce majority class bias. To understand this, we talk about a method called CoSen CNN proposed by (Khan et al., 2015).  CoSen CNN refers to a cost-sensitive Convolutional neural network that can automatically learn class-dependent costs and network parameters, and iteratively optimize class-dependent costs and network parameters. This approach is computationally less expensive as compared to the data-level methods and is applicable to both binary and multi-class problems without modification. K. It can be understood as a perturbation method, which forces the training algorithm to learn more discriminative features. By training the network in such a way that different classes are given different priorities, this approach handles the class imbalance problem without changing the data input to the network.
+
+![](http://dlclass2019.github.io/images/cnn_cost.png)
+
+**Fig 4.** The CNN parameters $$ (\theta) $$ and class-dependent cost $$ (\epsilon) $$ used during the training process.
+<br /><br />
+
+### Hybrid Method:
+
+The hybrid method combines the idea of both data level and algorithm level method. Huang, Li et al. proposed a method called Large Margin Local Embedding that uses a Convolutional neural network to learn an embedding $$ f(x) $$ from input data X into a feature space such that the embedded features are discriminative without local class imbalance.
+
+<!-- You’ll find this post in your `_posts` directory.
 
 Jekyll requires blog post files to be named according to the following format:
 
@@ -82,4 +94,4 @@ print_hi('Tom')
 
 
 You can add formulas
-$$ F = G \frac{m_1 m_2} {r^2} $$
+$$ F = G \frac{m_1 m_2} {r^2} $$ -->
