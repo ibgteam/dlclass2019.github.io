@@ -67,7 +67,7 @@ Unlike data-level methods, algorithm level methods do not change the distributio
 
 ![](http://dlclass2019.github.io/images/cnn_cost.png)
 
-**Fig 4.** The CNN parameters $$ (\theta) $$ and class-dependent cost $$ (\epsilon) $$ used during the training process.
+**Fig 6.** The CNN parameters $$ (\theta) $$ and class-dependent cost $$ (\epsilon) $$ used during the training process.
 <br /><br />
 
 ### Hybrid Method:
