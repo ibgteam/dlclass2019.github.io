@@ -13,7 +13,8 @@ Before building any classifier model, it is important for us to deal with the pr
 
 ![](http://dlclass2019.github.io/images/class_imb.png)
 
-**Fig 1.** Data Distribution
+**Fig 1.** Data Distribution of Unbalanced Data
+
 
 In this blog, we will mention different techniques that are used to overcome the data imbalance problem. To be specific, we will talk about the following three approaches:
 
@@ -25,6 +26,22 @@ In this blog, we will mention different techniques that are used to overcome the
   - The combination of data and algorithm level methods
 
 ### Data Level Method
+Data level methods are those techniques that directly modify the class distribution of training samples so as to make them balanced. There are different data-level methods that we can use in practice:
+
+**__Random undersampling:__** Random under-sampling balances the data distribution by removing samples from the majority class randomly. While it improves the run time, its major issue is that it may ignore some useful information from the majority class . Also, the chosen sample may be a biased sample.
+
+**__Random oversampling:__** This approach increases the number of instances in the minority class by randomly replicating them in order to present a higher representation of the minority class in the sample. Although there is no information loss in this approach, there is a chance of overfitting because of the repetition of the minority class data.
+
+**__Cluster-based oversampling:__** In this approach, we apply k-means clustering algorithm to both the minority and majority class independently. After clustering, each cluster is oversampled so that all the clusters of the same class have the same number of instances and all the classes have the same size. This method overcomes challenges within-class imbalance, where a class is composed of different sub-clusters and each sub-cluster does not contain the same number of examples. However, just like in random oversampling, this approach has the tendency to overfit the data.
+
+![](http://dlclass2019.github.io/images/resmple_imb.png)
+
+**Fig 2.** Resampling strategies by cluster-based oversampling for the imbalanced dataset
+
+
+**__Dynamic sampling:__** The approach of dynamic sampling proposed by Pouyanfar, Tao, Mohan and et al. (2018) is slightly more complex than the previous ones in that it dynamically samples the data as it is being trained. The proposed model includes a real-time data augmentation module, CNN transfer learning module, and dynamic sampling module that samples data based on F1 scores.
+
+First, the data augmentation is done using techniques such as rotations, flips, brightness, smoothness to generate different samples. Next, the updated samples are passed to an Inception model. Inception model is a widely-used convolution neural network based image recognition model that has been shown to attain a very good accuracy on the ImageNet dataset. In the inception model, only the last layer is made trainable as the early layers capture more generic features of the images. Now, as we train the inception model with the sampled dataset, we compute a new F1-score every time on the test set and compare it with the previous f1 score that we computed using a different sample. This will help us decide whether to oversample or undersample the data and see which samples actually produce a good result. Their proposed model included balanced augmentation throughout different classes and it outperformed all the baselines.
 
 You’ll find this post in your `_posts` directory.
 
