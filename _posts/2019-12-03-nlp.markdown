@@ -59,6 +59,18 @@ In this rest of this blog, we will introduce some classical deep learning models
 The Hierarchical Attention Network consists of four phases. Given words from a source text, the network starts with a word encoder phase that converts each word to a vector embedding. The vector embedding is further used as inputs of a bi-directional GRU which returns a latent representation of the word. In the second phase, namely the work-level attention phase, the latent representations of words are used as inputs of a multi-layer Perceptron to construct attention weights for each words. Next, a sentence is represented in the network as a weighted average of the latent representations of words belong to the sentence where the weights are simply the attention weights associated with each word. The third and last phase of the network is the same as the first and second phase except that the inputs are sentences instead of words. Finally, a document is represented as a linear combination of latent representations of sentences weighted by the attention weights of each sentence. 
 
 
+### BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+Many natural language processing tasks can be improved by language model pre-training. There are 3 different level tasks: sentence-level tasks, paraphrasing and token-level tasks.
+
+There are two existing methods for applying pre-trained language representations to downstream tasks, feature-based and fine-tuning. The same objective function are shared during pre-training. Inaddition, these mothods apply  unidirectional language models to learn general language representations.
+
+Unidirectional is the major limitation for current methods of standard language models which have negative effect on the the choice of architectures durning pre-training. In the presentation, the NLP team propose a different directional method, BERT. The new method can use a “masked language model” (MLM) pre-training objective to alleviates the previously mentioned unidirectionality constraint.
+
+
+
+### Transformer Architecture
+
+
 
 
   
