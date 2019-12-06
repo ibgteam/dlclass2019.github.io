@@ -66,6 +66,9 @@ There are two existing methods for applying pre-trained language representations
 
 Unidirectional is the major limitation for current methods of standard language models which have negative effect on the the choice of architectures durning pre-training. In the presentation, the NLP team propose a different directional method, BERT. The new method can use a “masked language model” (MLM) pre-training objective to alleviates the previously mentioned unidirectionality constraint.
 
+<img src="https://github.com/ibgteam/dlclass2019.github.io/blob/master/images/NLP_6.PNG">
+<img src="https://github.com/ibgteam/dlclass2019.github.io/blob/master/images/NLP_7.PNG">
+
 
 
 ### Transformer Architecture
